@@ -1,15 +1,19 @@
+using Medical.DataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Servislarni ro‘yxatdan o‘tkazamiz
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddInfrastructure(builder.Configuration); // DI chaqirish
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Database migratsiyasini bajarish
+await app.Services.MigrateDatabaseAsync();
+
+// Middleware konfiguratsiyasi
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,9 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

@@ -4,8 +4,8 @@ namespace Medical.Core.Entity
 {
     public class VideoZvonok:BaseEntity
     {
-        public Guid UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public Guid ApplicationUserId { get; set; }
+        public ApplicationUser AplicationUser { get; set; }
         public Guid DoctorId { get; set; }
         public Doctor Doctor { get; set; }
         public DateTime StartTime { get; set; }

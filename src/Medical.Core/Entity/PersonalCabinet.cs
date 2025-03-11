@@ -8,7 +8,7 @@ namespace Medical.Core.Entity
         public Guid AppointmentId { get; set; }
         public Appointment Appointment { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
-        public Guid UserId { get; set; }
+        public Guid ApplicationUserId { get; set; }
         public ApplicationUser User { get; set; }
     }
 }
