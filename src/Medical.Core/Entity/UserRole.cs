@@ -2,8 +2,8 @@
 {
     public enum UserRole
     {
-        Patient,  // Oddiy foydalanuvchi
-        Doctor,   // Shifokor
-        Admin     // Tizim administratori
+        Patient=0,  // Oddiy foydalanuvchi
+        Doctor=1,   // Shifokor
+        Admin=2     // Tizim administratori
     }
 }
